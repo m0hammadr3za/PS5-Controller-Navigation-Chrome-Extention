@@ -1,0 +1,49 @@
+/* Cursor Styling */
+#gamepad-cursor {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 122, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  box-shadow: 0 0 15px rgba(0, 122, 255, 0.7);
+}
+
+/* Hidden Cursor */
+#gamepad-cursor.cursor-hidden {
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+/* Cursor Edge Hiding */
+#gamepad-cursor.cursor-edge-hide {
+  opacity: 0;
+}
+
+/* Ripple Effect */
+.ripple {
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  background-color: rgba(0, 122, 255, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  animation: ripple-effect 0.5s ease-out;
+}
+
+/* Ripple Animation */
+@keyframes ripple-effect {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(5);
+    opacity: 0;
+  }
+}
