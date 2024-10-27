@@ -1,7 +1,3 @@
-/**
- * Combined PS5 Controller Web Navigator
- * Enables web page navigation, scrolling, and cursor control using a PS5 controller.
- */
 (() => {
   // Configuration Constants
   const CONFIG = {
@@ -77,6 +73,7 @@
   function createCursorElement() {
     const cursor = document.createElement("div");
     cursor.id = CONFIG.CURSOR_ID;
+    cursor.classList.toggle("cursor-hidden", !cursorVisible);
     document.body.appendChild(cursor);
     updateCursorPosition();
   }
@@ -202,7 +199,7 @@
 
       case controllerButtons.L1:
         // Simulate Click at Cursor Position
-        if (!clickLock) {
+        if (!clickLock && cursorVisible) {
           simulateClick();
           clickLock = true;
         }
@@ -216,10 +213,6 @@
           }
           toggleLock = true;
         }
-        break;
-
-      default:
-        // Handle other buttons if needed
         break;
     }
   }
