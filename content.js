@@ -1,4 +1,7 @@
 (() => {
+  // Check if the current context is secure
+  if (!window.isSecureContext) return;
+
   // Configuration Constants
   const CONFIG = {
     // General Configuration
